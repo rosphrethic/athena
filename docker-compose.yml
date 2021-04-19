@@ -19,12 +19,25 @@ services:
       volumes:
         - .:/application
       environment:
-        - MYSQL_ROOT_PASSWORD=rosphrethic
+        - MYSQL_ROOT_PASSWORD=mysql
         - MYSQL_DATABASE=athena
-        - MYSQL_USER=rosphrethic
-        - MYSQL_PASSWORD=rosphrethic
+        - MYSQL_USER=mysql
+        - MYSQL_PASSWORD=mysql
       ports:
         - "8002:3306"
+
+    phpmyadmin:
+      image: phpmyadmin
+      container_name: athena-phpmyadmin
+      working_dir: /application
+      restart: always
+      ports:
+        - 8080:80
+      environment:
+        - PMA_HOST=mysql
+        - PMA_ARBITRARY=1
+        - PMA_USER=mysql
+        - PMA_PASSWORD=mysql
 
     webserver:
       image: nginx:alpine
