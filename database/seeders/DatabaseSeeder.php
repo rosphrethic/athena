@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
 
         // Movimientos
         $this->call(CourseSeeder::class);
+        $this->call(ScheduleSeeder::class);
         $this->call(HabilitationSeeder::class);
         // $this->call(AsignaturaCursoSeeder::class);
         // $this->call(RequisitoSeeder::class);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\CourseRequirement;
+use App\Models\Schedule;
 use Auth;
 
 class CourseController extends Controller
@@ -49,6 +50,15 @@ class CourseController extends Controller
             $course_requirement->requirement_id = $requirement_id;
 
             $course_requirement->save();
+        }
+
+        for ($i=1; $i <= 7; $i++) { 
+            $schedule = new Schedule;
+
+            $schedule->course_id = $course->id;
+            $schedule->hour = $i;
+
+            $schedule->save();
         }
     }
 

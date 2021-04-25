@@ -100,6 +100,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/baccalaureates', [GlobalController::class, 'getAllBaccalaureates']); 
             Route::get('/requirements', [GlobalController::class, 'getAllRequirements']); 
             Route::get('/sections', [GlobalController::class, 'getAllSections']); 
+            Route::get('/subjects', [GlobalController::class, 'getAllSubjects']); 
             Route::get('/courses', [GlobalController::class, 'getAllCourses']); 
             Route::get('/years', [GlobalController::class, 'getAllYears']); 
         });
@@ -254,7 +255,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::prefix('/schedules')->group(function () {
             Route::get('/', [ScheduleController::class, 'index']); 
-            Route::post('/update', [ScheduleController::class, 'update']); 
+            Route::get('/getOne', [ScheduleController::class, 'getOne']); 
+            Route::get('/update', [ScheduleController::class, 'update']); 
         });
     });
 

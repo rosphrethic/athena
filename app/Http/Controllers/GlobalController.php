@@ -49,6 +49,11 @@ class GlobalController extends Controller
         return Section::orderBy('name')->get();
     }
 
+    public function getAllSubjects()
+    {
+        return Subject::orderBy('name')->get();
+    }
+
     public function getAllGuardians()
     {
         return Guardian::orderBy('name')->get();

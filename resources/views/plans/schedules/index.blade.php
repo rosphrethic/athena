@@ -23,9 +23,10 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
+
                 <div class="row">
                     <div class="col-3">
-                        <select id="course_id" name="course_id" class="form-control select2 course_id">
+                        <select id="course_id" class="form-control select2 course_id">
                             <option disabled selected value="">Seleccione un curso</option>
                         </select>
                     </div>
@@ -33,174 +34,120 @@
 
                 <hr>
 
-                <div id="basic-example">
-                    <!-- Seller Details -->
-                    <h3>Seller Details</h3>
-                    <section>
-                        <form>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-firstname-input">First name</label>
-                                        <input type="text" class="form-control" id="basicpill-firstname-input">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-lastname-input">Last name</label>
-                                        <input type="text" class="form-control" id="basicpill-lastname-input">
-                                    </div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#hour1" role="tab">
+                            1°
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#hour2" role="tab">
+                            2°
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#hour3" role="tab">
+                            3°
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#hour4" role="tab">
+                            4°
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#hour5" role="tab">
+                            5°
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#hour6" role="tab">
+                            6°
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#hour7" role="tab">
+                            7°
+                        </a>
+                    </li>
+                </ul>
+        
+                <!-- Tab panes -->
+                <div class="tab-content p-3">
+                    @for($i = 1; $i <= 7; $i++)
+                    <div class="tab-pane @if($i == 1) active @endif" id="hour{{$i}}" role="tabpanel">
+                        <form id="form{{$i}}" style="margin-bottom: -40px !important;" autocomplete="off">
+
+                            <input id="id{{$i}}" type="hidden" name="id">
+
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label">Desde {{$i}}</label>
+                                <div class="col-lg-10">
+                                    <input id="from{{$i}}" name="from" type="search" class="form-control input-mask" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="HH:MM">
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-phoneno-input">Phone</label>
-                                        <input type="text" class="form-control" id="basicpill-phoneno-input">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-email-input">Email</label>
-                                        <input type="email" class="form-control" id="basicpill-email-input">
-                                    </div>
+                            <div class="form-group row input-hidden">
+                                <label class="col-lg-2 col-form-label">Hasta</label>
+                                <div class="col-lg-10">
+                                    <input id="to{{$i}}" name="to" type="text" class="form-control input-mask" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="HH:MM">
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="basicpill-address-input">Address</label>
-                                        <textarea id="basicpill-address-input" class="form-control" rows="2"></textarea>
-                                    </div>
+
+                            <div class="form-group row input-hidden">
+                                <label class="col-lg-2 col-form-label">Lunes</label>
+                                <div class="col-lg-10">
+                                    <select id="monday{{$i}}" name="monday" class="form-control select2 subject_id">
+                                        <option disabled selected value="">Seleccione una asignatura</option>
+                                    </select>
                                 </div>
                             </div>
+
+                            <div class="form-group row input-hidden">
+                                <label class="col-lg-2 col-form-label">Martes</label>
+                                <div class="col-lg-10">
+                                    <select id="tuesday{{$i}}" name="tuesday" class="form-control select2 subject_id">
+                                        <option disabled selected value="">Seleccione una asignatura</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row input-hidden">
+                                <label class="col-lg-2 col-form-label">Miércoles</label>
+                                <div class="col-lg-10">
+                                    <select id="wednesday{{$i}}" name="wednesday" class="form-control select2 subject_id">
+                                        <option disabled selected value="">Seleccione una asignatura</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row input-hidden">
+                                <label class="col-lg-2 col-form-label">Jueves</label>
+                                <div class="col-lg-10">
+                                    <select id="thursday{{$i}}" name="thursday" class="form-control select2 subject_id">
+                                        <option disabled selected value="">Seleccione una asignatura</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row input-hidden">
+                                <label class="col-lg-2 col-form-label">Viernes</label>
+                                <div class="col-lg-10">
+                                    <select id="friday{{$i}}" name="friday" class="form-control select2 subject_id">
+                                        <option disabled selected value="">Seleccione una asignatura</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <button id="save{{$i}}" type="button" class="btn btn-success btn-save float-right" data-id="{{$i}}">Guardar</button>
                         </form>
-                    </section>
-
-                    <!-- Company Document -->
-                    <h3>Company Document</h3>
-                    <section>
-                        <form>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-pancard-input">PAN Card</label>
-                                        <input type="text" class="form-control" id="basicpill-pancard-input">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-vatno-input">VAT/TIN No.</label>
-                                        <input type="text" class="form-control" id="basicpill-vatno-input">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-cstno-input">CST No.</label>
-                                        <input type="text" class="form-control" id="basicpill-cstno-input">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-servicetax-input">Service Tax No.</label>
-                                        <input type="text" class="form-control" id="basicpill-servicetax-input">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-companyuin-input">Company UIN</label>
-                                        <input type="text" class="form-control" id="basicpill-companyuin-input">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="basicpill-declaration-input">Declaration</label>
-                                        <input type="text" class="form-control" id="basicpill-Declaration-input">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
-
-                    <!-- Bank Details -->
-                    <h3>Bank Details</h3>
-                    <section>
-                        <div>
-                            <form>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-namecard-input">Name on Card</label>
-                                            <input type="text" class="form-control" id="basicpill-namecard-input">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label>Credit Card Type</label>
-                                            <select class="form-select">
-                                                <option selected>Select Card Type</option>
-                                                <option value="AE">American Express</option>
-                                                <option value="VI">Visa</option>
-                                                <option value="MC">MasterCard</option>
-                                                <option value="DI">Discover</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-cardno-input">Credit Card Number</label>
-                                            <input type="text" class="form-control" id="basicpill-cardno-input">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-card-verification-input">Card Verification Number</label>
-                                            <input type="text" class="form-control" id="basicpill-card-verification-input">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-expiration-input">Expiration Date</label>
-                                            <input type="text" class="form-control" id="basicpill-expiration-input">
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-                    </section>
-
-                    <!-- Confirm Details -->
-                    <h3>Confirm Detail</h3>
-                    <section>
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6">
-                                <div class="text-center">
-                                    <div class="mb-4">
-                                        <i class="mdi mdi-check-circle-outline text-success display-4"></i>
-                                    </div>
-                                    <div>
-                                        <h5>Confirm Detail</h5>
-                                        <p class="text-muted">If several languages coalesce, the grammar of the resulting</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
+                    @endfor
                 </div>
             </div>
         </div>
@@ -210,45 +157,83 @@
 
 @section('scripts')
 <script>
-    function update() {
+    function loadSelectSubjects() {
         $.ajax({
             type: "GET",
-            url: '/plans/habilitations/update',
-            data: $('#form').serialize()
+            url: `/global/getAll/subjects`
+        })
+        .done(function (data) {
+            $.each(data, function (key, subject) {
+                $(".subject_id").append(
+                    `<option value='${subject.name}'>${subject.name} - ${subject.acronym}</option>`
+                );
+            });
 
-        }).done(function() {
-            loadTable($('.course_id:first').val());
-            toggleModal();
-            hideModal();
-            hideProgressBar();
-            hideButtons();
-            resetSelects();
-
-            toastr.success('La operación ha sido exitosa!')
-
-        }).fail(function(jqXhr) {
-            fail(jqXhr.responseJSON.errors, [
-                'course_id',
-                'subject_id',
-                'modality',
-                'required',
-                'hour_weekly',
-                'average_required',
-            ]);
+        })
+        .fail(function () {
+            fail();
         });
     }
 
+    function update() {
+        for (let i = 0; i < 7; i++) {
+            $.ajax({
+                type: "GET",
+                url: '/plans/schedules/update',
+                data: $(`#form${i+1}`).serialize()
+
+            }).done(function() {
+
+
+            }).fail(function(jqXhr) {
+                fail();
+            });           
+            
+            console.log(`Done: ${i}`);
+        }
+
+        hideProgressBar();
+        toastr.success('La operación ha sido exitosa!')
+    }
+
+    
+    function show(id) {
+        $.ajax({
+            type: "GET",
+            url: '/plans/schedules/getOne',
+            data: {
+                id: id
+            },
+        }).done(function(data) {
+            for (let i = 0; i < 7; i++) {
+                $(`#id${i+1}`).val(data[i].id);
+                $(`#from${i+1}`).val(data[i].from);
+                $(`#to${i+1}`).val(data[i].to);
+                $(`#monday${i+1}`).val(data[i].monday).change();
+                $(`#tuesday${i+1}`).val(data[i].tuesday).change();
+                $(`#wednesday${i+1}`).val(data[i].wednesday).change();
+                $(`#thursday${i+1}`).val(data[i].thursday).change();
+                $(`#friday${i+1}`).val(data[i].friday).change();
+            }
+        }).fail(function() {
+            fail();
+        });
+    }
+
+
     $(document).ready(function() {
         loadSelectCourse();
+        loadSelectSubjects();
 
-        $(document).on('click', '#save', function() {
-            action = ($('#id').val()) ? update() : store();
+        $(document).on('click', '.btn-save', function() {
+            update();
         });
 
         $(document).on('change', '#course_id', function() {
-            // loadSchedule();
-            alert();
+            show($(this).val());
         });
+
+
     });
 </script>
 @endsection

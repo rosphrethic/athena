@@ -21,8 +21,10 @@
 
 <script src="{{ asset('assets/libs/toastr/build/toastr.min.js') }}"></script>
 <script src="{{ asset('assets/js/pages/toastr.init.js') }}"></script>
-<script src="{{ asset('assets/js/pages/form-wizard.init.js') }}"></script>
-<script src="{{ asset('assets/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
+
+
+<script src="{{ asset('assets/libs/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/pages/form-mask.init.js') }}"></script>
 
 <script src="{{ asset('assets/js/app.js') }}"></script>
 
